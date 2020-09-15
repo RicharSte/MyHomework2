@@ -12,11 +12,25 @@
 """
 
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    with open('referat.txt', 'r', encoding='utf-8') as file:
+        
+        sumbols = 0
+        words = 0
+        
+        for line in file:
+            sumbols += len(line)
+            words += len(line.split())
+            
+        print(f"Слов - {words} , символов - {sumbols}")
+    
+    with open('referat2.txt', 'w', encoding='utf-8') as file1:
+        with open('referat.txt', 'r', encoding='utf-8') as file2:
+            
+            for line in file2:
+                line = line.replace('.','!')
+                file1.write(line)
+        
+        
 
 if __name__ == "__main__":
     main()
